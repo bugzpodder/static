@@ -12,6 +12,14 @@
     }
     document.getElementById("t").innerHTML = "Message received from the parent: " + v1; 
     document.getElementById("foo").innerHTML = v2; 
+    var ztxt = new Ztextify("#foo", {
+   depth: "30px",
+   layers: 8,
+   fade: true,
+   direction: "forwards",
+   event: "pointer",
+   eventRotation: "35deg"
+});
 
   });
 </script>
