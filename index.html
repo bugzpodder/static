@@ -1,12 +1,25 @@
 <html>
 <head>
+  <script src="/path/to/ztext.min.js"></script>
 <script>
   window.addEventListener('message', function(event) {
-    document.getElementById("foo").innerHTML = "Message received from the parent: " + event.data; // Message received from parent
+    let v1, v2;
+    if (Array.isArray(event.data)) {
+        v1 = event.data.join(" and ");
+        v2 = event.data[1];
+    } else {
+      v1 = event.data;
+    }
+    document.getElementById("t").innerHTML = "Message received from the parent: " + v1; 
+    document.getElementById("foo").innerHTML = v2; 
+
   });
 </script>
 </head>
 <body>
-   <div id="foo" />
+   <h1>
+     <div id="t" />;
+     <span data-z data-z-layers="3" data-z-depth="0.5em" id="foo"></span>
+  </h1>
 </body>
 </html>
