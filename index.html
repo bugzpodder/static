@@ -2,10 +2,11 @@
 <head>
 <script>
   window.addEventListener('message', function(event) {
-    console.log("Message received from the parent: " + event.data); // Message received from parent
+    document.getElementById("foo").innerHTML = "Message received from the parent: " + event.data; // Message received from parent
   });
 </script>
 </head>
 <body>
+   <div id="foo" />
 </body>
 </html>
