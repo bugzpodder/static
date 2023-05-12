@@ -6,11 +6,13 @@ var title = "";
 self.onmessage = function(e) {
   if (typeof e.data == "string") {
     for (let i = 0; i < 2000000000; i++) {}
-  } else {
+  } else if (e.data.canvas) {
     canvasB = e.data.canvas;
     ctxWorker = canvasB.getContext("2d");
     title = e.data.title;
     startCounting();
+  } else {
+    title = e.data.title; 
   }
 };
 
