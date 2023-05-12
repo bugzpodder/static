@@ -1,6 +1,7 @@
 var canvasB = null;
 var ctxWorker = null;
 
+var title = "";
 // Waiting to receive the OffScreenCanvas
 self.onmessage = function(e) {
   if (typeof e.data == "string") {
@@ -8,7 +9,7 @@ self.onmessage = function(e) {
   } else {
     canvasB = e.data.canvas;
     ctxWorker = canvasB.getContext("2d");
-
+    title = e.data.title;
     startCounting();
   }
 };
@@ -28,7 +29,7 @@ function redrawCanvasB() {
   ctxWorker.font = "16px Verdana";
   ctxWorker.textAlign = "center";
   ctxWorker.fillText(
-    "Counting: " + counter,
+    title + ": " + counter,
     canvasB.width / 2,
     canvasB.height / 2
   );
